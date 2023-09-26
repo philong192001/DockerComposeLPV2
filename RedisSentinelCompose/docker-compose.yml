@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  sentinel1:
+    image: redis:6.2
+    command: ["redis-server", "/usr/local/etc/redis/sentinel1.conf"]
+    volumes:
+      - ./sentinel1.conf:/usr/local/etc/redis/sentinel1.conf
+    ports:
+      - "26379:26379"
+    networks:
+      - redis-net
+
+  sentinel2:
+    image: redis:6.2
+    command: ["redis-server", "/usr/local/etc/redis/sentinel2.conf"]
+    volumes:
+      - ./sentinel2.conf:/usr/local/etc/redis/sentinel2.conf
+    ports:
+      - "26380:26379"
+    networks:
+      - redis-net
+
+  sentinel3:
+  image: redis:6.2
+  command: ["redis-server", "/usr/local/etc/redis/sentinel3.conf"]
+  volumes:
+    - ./sentinel3.conf:/usr/local/etc/redis/sentinel3.conf
+  ports:
+    - "26380:26379"
+  networks:
+    - redis-net
+
+  redis1:
+    image: redis:6.2
+    command: ["redis-server", "/usr/local/etc/redis/redis1.conf"]
+    volumes:
+      - ./redis1.conf:/usr/local/etc/redis/redis1.conf
+    ports:
+      - "6379:6379"
+    networks:
+      - redis-net
+
+  redis2:
+    image: redis:6.2
+    command: ["redis-server", "/usr/local/etc/redis/redis2.conf"]
+    volumes:
+      - ./redis2.conf:/usr/local/etc/redis/redis2.conf
+    ports:
+      - "6380:6379"
+    networks:
+      - redis-net
+
+  redis3:
+    image: redis:6.2
+    command: ["redis-server", "/usr/local/etc/redis/redis3.conf"]
+    volumes:
+      - ./redis3.conf:/usr/local/etc/redis/redis3.conf
+    ports:
+      - "6380:6379"
+    networks:
+      - redis-net
+
+networks:
+  redis-net:
