@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>RabbitMQ_logstash</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="Serilog.Extensions.hosting" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.RabbitMQ" Version="3.0.6" />
+  </ItemGroup>
+
+
+</Project>

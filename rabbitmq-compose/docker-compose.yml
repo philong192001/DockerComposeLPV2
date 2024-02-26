@@ -1,0 +1,17 @@
+version: '3'
+services:
+    rabbitdemo:
+      image: rabbitmq:3.9.17-management-alpine
+      hostname: "rabbit1"
+      environment:
+        RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+        RABBITMQ_DEFAULT_USER: "longpv2"
+        RABBITMQ_DEFAULT_PASS: "longpv2"
+        RABBITMQ_DEFAULT_VHOST: "/"
+      ports:
+        - "15672:15672"
+        - "5672:5672"
+      labels:
+        NAME: "rabbitmq1"
+      volumes:
+        - "./enabled_plugins:/etc/rabbitmq/enabled_plugins"

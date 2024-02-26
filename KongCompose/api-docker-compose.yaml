@@ -1,0 +1,14 @@
+version: '3.8'
+services: 
+    baexpressservice:
+        container_name: baexpressapi
+        build: 
+            context: F:/longpv2/SourceCode/BAExpress-NetCore/staxi_shipping_backend
+            dockerfile: BAExpress.Api/Dockerfile
+        ports: 
+          - "2001:2001"
+networks: 
+  default:
+    name: kong-net
+    external: true
+    
